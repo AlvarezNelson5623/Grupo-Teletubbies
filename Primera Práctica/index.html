@@ -134,6 +134,48 @@
             max-width: 50%;
         }
 
+        /* Estilos responsive */
+        @media (max-width: 768px) {
+            .modal {
+                width: 90%;
+                padding: 10px;
+                max-width: none;
+                top: 10%;
+                transform: translate(-50%, 0);
+                flex-direction: column; /* Alineación de contenido en columna para pantallas pequeñas */
+            }
+
+            .modal-body {
+                max-width: 100%;
+                text-align: center;
+                padding: 1em 0;
+            }
+
+            .modal-img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .modal {
+                top: 5%;
+            }
+
+            .modal-body {
+                padding: 5px;
+            }
+
+            .card-title {
+                font-size: 1.2em;
+            }
+
+            .card-description {
+                font-size: 10px;
+                padding: 15px;
+            }
+        }
+
     </style>
 </head>
 <body>
