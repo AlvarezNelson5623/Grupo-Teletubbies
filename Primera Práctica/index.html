@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/codefolder_99364.png" type="image/x-icon">
+    <title>Grupo Teletubbies</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url(img/fd2.png);
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            padding: 2em;
+        }
+
+        .team {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2em;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: space-evenly;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card:active {
+            transform: scale(1.05) rotate(3deg);
+        }
+
+        .card-img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 1em;
+            position: relative;
+        }
+
+        .card-title {
+            font-size: 1.5em;
+            margin: 0.5em 0;
+            text-align: center;
+        }
+
+        .card-role {
+            font-size: 1.2em;
+            color: #666;
+            margin: 0.5em 0;
+        }
+
+        .card-description {
+            font-size: 12px;
+            color: #333;
+            text-align: justify;
+            padding: 30px;
+            display: none; /* Oculta la descripción inicialmente */
+        }
+
+        /* Estilos para la card duplicada */
+        .modal {
+            display: none; /* El modal debe estar oculto por defecto */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            width: 60%;
+            max-width: 900px;
+            text-align: center;
+            transition: all 0.3s ease;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .modal-overlay {
+            display: none; /* La superposición también debe estar oculta por defecto */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.804);
+            z-index: 999;
+        }
+
+        .modal-img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .modal-body {
+            text-align: left;
+            padding: 1em;
+            max-width: 50%;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Conoce a Nuestro Equipo K - Grupo Teletubbies </h1> 
+    </header>
+    <main>
+        <section class="team">
+            <div class="card" onclick="duplicateCard(this)">
+                <img src="img/nelson.jpeg" alt="Miembro del equipo 1" class="card-img">
+                <div class="card-body">
+                    <h2 class="card-title">Nelson Ivan Alvarez Suarez</h2>
+                    <p class="card-description">Nelson Alvarez reside actualmente en el departamento de Santander. En cuanto a sus aficiones le gusta el senderismo y la naturaleza. Actualmente se desarrolla como estudiante de Ingeniería de Sistemas en la Universidad Industrial de Santander, estudiante del Tecnólogo en Análisis y Desarrollo de Software (ADSO) en el SENA, profesor de Python en la plataforma digital Kodland y Auxiliar de Posgrados de la Escuela de Sistemas (UIS). En cuanto sus estudios certificados, es Técnico en Sistemas y Graduado Misión TIC con énfasis en Desarrollo Web.<br/><br/> 
+                        <a href="https://www.instagram.com/nel_alvs/" target="_blank"><img src="img/instagram_socialnetwork_22374.png"  alt=""></a> 
+                        <a href="https://github.com/AlvarezNelson5623" target="_blank"><img src="img/github_social_media_corporate_logo_icon-icons.com_67711.png"  alt=""></a> </p>
+                    
+                </div>
+            </div>
+            <div class="card" onclick="duplicateCard(this)">
+                <img src="img/brayan.jpeg" alt="Miembro del equipo 2" class="card-img">
+                <div class="card-body">
+                    <h2 class="card-title">Brayan Yecid Aparicio Goyeneche</h2>
+                    <p class="card-description">Brayan Yecid Aparicio Goyeneche originario de Covarachia(Boy), curso sus estudios de bachillerato en la institución educativa San Luis Beltrán del mismo municio, actualmente es un estudiante de séptimo semestre de ingeniería de sistemas en la Universidad Industrial de Santander(UIS), con un fuerte interés en las redes computacionales y la inteligencia artificial. Cuando no está inmerso en el estudio de estas áreas, disfruta de los deportes extremos, combinando su amor por la tecnología con la adrenalina. Para conocer más sobre su trayectoria y aficiones, puedes seguirlo en Instagram.<br/><br/> 
+                        <a href="https://www.instagram.com/apariciogoyeneche/" target="_blank"><img src="img/instagram_socialnetwork_22374.png"  alt=""></a>
+                        <a href="https://github.com/ElBartoCol" target="_blank"><img src="img/github_social_media_corporate_logo_icon-icons.com_67711.png"  alt=""></a></p>
+                    
+                </div>
+            </div>
+            <div class="card" onclick="duplicateCard(this)">
+                <img src="img/carlos.jpeg" alt="Miembro del equipo 2" class="card-img">
+                <div class="card-body">
+                    <h2 class="card-title">Carlos Andres Galeano martinez</h2>
+                    <p class="card-description">Carlos Andrés Galeano Martínez originario de Vélez (Santander), actualmente cursa el sexto nivel de ingeniería de sistemas en la universidad industrial de Santander(UIS), estudió su bachillerato en el colegio sagrado corazón de Jesús hermanas bethlemitas de Vélez Santander, la pasión por la tecnología lo ha llevado a desarrollar habilidades en diversas áreas de la informática y deportes como el futbol, el está continuamente buscando aprender y poder seguir con sus estudios. Para conocer más sobre él puedes seguirlo en Instagram.<br/><br/>
+                        <a href="https://www.instagram.com/carlos_galeano_00/" target="_blank"><img src="img/instagram_socialnetwork_22374.png"  alt=""></a> 
+                        <a href="https://github.com/Tatos3" target="_blank"><img src="img/github_social_media_corporate_logo_icon-icons.com_67711.png"  alt=""></a></p>
+                    
+                </div>
+            </div>
+            <div class="card" onclick="duplicateCard(this)">
+                <img src="img/sebastian.jpeg" alt="" class="card-img">
+                <div class="card-body">
+                    <h2 class="card-title">Juan Sebastian Landinez Arenales</h2>
+                    <p class="card-description">Nacido en la ciudad de Bucaramanga, Santander el 26 de Marzo de 2004. Estudios de primaria y bachillerato en el Colegio Privado Franciscano del Virrey Solis de Bucaramanga. Me gusta el deporte, la  actividad física. Aficionado a la recocha. En mis tiempos libres practico deportes como el Volleyball, futbol  tenis. Me entretengo saliendo los fines de semana en la noche con mis amigos. Hablo ingles con fluidez e intento practicar otros idiomas en mis tiempos libres. Me gusta mirar la lluvia desde mi ventana mientras bebo una taza de café caliente y leo un libro. También medito en las mañanas antes de iniciar el día.<br/><br/> 
+                        <a href="https://www.instagram.com/sebastian_lan9/" target="_blank"><img src="img/instagram_socialnetwork_22374.png"  alt=""></a>
+                        <a href="https://github.com/SebastianRC999" target="_blank"><img src="img/github_social_media_corporate_logo_icon-icons.com_67711.png"  alt=""></a></p>
+                    
+                </div>
+            </div>
+            <div class="card" onclick="duplicateCard(this)">
+                <img src="img/sergio.jpeg" alt="" class="card-img">
+                <div class="card-body">
+                    <h2 class="card-title">Sergio Nelson Alberto Gómez Gil</h2>
+                    <p class="card-description">Soy de Colombia, Santander de un pueblo llamado El Páramo y allí complete mis estudios. Desde pequeño adquirí un gusto a los juegos y la informática y me incline por la opción de estudiar una carrera que tuviera programación o algo relacionado con esto, actualmente ando realizando un proyecto independiente con un amigo de la universidad pontificia de un juego indie con el nombre actual de "Bloody Dagger" aún está en fases tempranas de desarrollo pero la idea sigue en curso. Este 2024-2 en séptimo semestre de ingeniería de sistemas, aficionado al boxeo ya desde hace unos años y Entusiasta de la Inteligencia Artificial y la Tecnología.<br/><br/>
+                        <a href="https://www.instagram.com/sergiogomez.uwu/" target="_blank"><img src="img/instagram_socialnetwork_22374.png"  alt=""></a> 
+                        <a href="https://github.com/papatomi09" target="_blank"><img src="img/github_social_media_corporate_logo_icon-icons.com_67711.png"  alt=""></a></p>
+                    
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal para mostrar la tarjeta duplicada -->
+    <div class="modal-overlay" id="modalOverlay"></div>
+    <div class="modal" id="modal"></div>
+    
+
+    <script>
+        function duplicateCard(card) {
+            const modal = document.getElementById('modal');
+            const modalOverlay = document.getElementById('modalOverlay');
+            const cardDescription = card.querySelector('.card-description');
+            
+            // Mostrar la descripción en la tarjeta
+            cardDescription.style.display = 'block';
+            
+            // Duplicar el contenido de la tarjeta
+            const cardImg = card.querySelector('.card-img').cloneNode(true);
+            const cardBody = card.querySelector('.card-body').cloneNode(true);
+
+            // Limpiar el modal y agregar la imagen y el cuerpo de la tarjeta
+            modal.innerHTML = ''; // Vacía el contenido anterior del modal
+            cardImg.classList.add('modal-img');
+            cardBody.classList.add('modal-body');
+            modal.appendChild(cardImg);
+            modal.appendChild(cardBody);
+
+            // Mostrar el modal y la superposición
+            modal.style.display = 'flex';
+            modalOverlay.style.display = 'block';
+
+            // Cerrar el modal al hacer clic en la superposición
+            modalOverlay.onclick = function() {
+                modal.style.display = 'none';
+                modalOverlay.style.display = 'none';
+            }
+
+            // Ocultar la descripción nuevamente en la tarjeta original
+            cardDescription.style.display = 'none';
+        
+        }
+    </script>
+</body>
+</html>
