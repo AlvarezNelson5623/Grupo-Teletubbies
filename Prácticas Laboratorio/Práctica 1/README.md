@@ -1,5 +1,44 @@
 # **_Practica 1: Introducción al Curso_**
-Explicación del Desarrollo de la práctica ![Badge Finalizado](https://img.shields.io/badge/STATUS-PROGRESS-green)
+Explicación del Desarrollo de la práctica ![Badge Finalizado](https://img.shields.io/badge/STATUS-FINALIZADO-green)
+# Compuertas: Implementación
+
+Las puertas primitivas son los bloques fundamentales que permiten construir cualquier cosa, similar a los axiomas en matemáticas. Estas puertas vienen listas para usarse, permitiendo que crees otras puertas y chips sin preocuparte por su funcionamiento interno. En el diseño de la computadora que estamos iniciando, hemos decidido basar todo en una sola puerta primitiva: la puerta NAND. Aquí comenzaremos a explicar la primera fase de este proyecto, construyendo el hardware puerta por puerta.
+
+## Instrucciones Generales
+
+Nuestras instrucciones no están completamente detalladas porque queremos que seas tú quien diseñe las puertas. Recuerda:
+- Cada puerta se puede implementar de varias formas.
+- Cuanto más simple sea la implementación, mejor.
+
+### Puerta Not
+
+- **Descripción**: Hacer una puerta Not usando una puerta NAND es sencillo.
+- **Consejo**: Piensa en positivo.
+
+### Puerta And
+
+- **Descripción**: También es fácil de implementar.
+- **Consejo**: Piensa en negativo.
+
+### Puertas Or/Xor
+
+- **Descripción**: Estas funciones se pueden construir utilizando las puertas anteriores y algunas operaciones simples.
+- **Nota**: Con estas puertas básicas, puedes crear puertas más complejas.
+
+### Multiplexor/Demultiplexor
+
+- **Descripción**: Estas puertas se pueden construir usando las puertas ya creadas.
+
+### Puertas Multi-Bit (Not/And/Or)
+
+- **Descripción**: Como ya sabes cómo hacer las versiones básicas, crear versiones que manejen varios bits solo requiere construir varias puertas básicas, haciendo que cada una trabaje con un bit diferente.
+- **Nota**: Aunque repetitivo, este paso será crucial para su uso en chips más complejos, que se detallarán más adelante.
+
+### Multiplexor Multi-Bit
+
+- **Descripción**: Implementar un multiplexor para varios bits solo implica usar el mismo bit de selección para cada puerta.
+
+# Preguntas Adicionales
 
 
 ### 1. ¿Que consideraciones importantes debe tener en cuenta para trabajar con Nand2Tetris?                                                                                                                                             
