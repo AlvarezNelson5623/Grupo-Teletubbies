@@ -155,7 +155,7 @@
         .social-icons a:hover {
             color: #1a73e8;
         }
-
+        
         /* Estilos para el modal */
         .modal {
             display: none;
@@ -244,6 +244,17 @@
                 padding: 15px;
             }
         }
+.overlay-text {
+    position: absolute;
+    top: 10px; /* Distancia desde la parte superior */
+    left: 10px; /* Distancia desde la parte izquierda */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+}
 
     </style>
 </head>
@@ -268,18 +279,24 @@
             <!-- Aquí se colocan las tarjetas de los integrantes -->
             <div class="card" onclick="duplicateCard(this)">
                 <img src="img/nelson.jpeg" alt="Miembro del equipo 1" class="card-img">
+                <div class="image-container">
+                    <div class="overlay-text">Nivel 7</div>
+                </div>
                 <div class="card-body">
                     <h2 class="card-title">Nelson Ivan Alvarez Suarez</h2>
                     <p class="card-description">Nelson Alvarez reside actualmente en el departamento de Santander. En cuanto a sus aficiones le gusta el senderismo y la naturaleza. Actualmente se desarrolla como estudiante de Ingeniería de Sistemas en la Universidad Industrial de Santander, estudiante del Tecnólogo en Análisis y Desarrollo de Software (ADSO) en el SENA, profesor de Python en la plataforma digital Kodland y Auxiliar de Posgrados de la Escuela de Sistemas (UIS). En cuanto sus estudios certificados, es Técnico en Sistemas y Graduado Misión TIC con énfasis en Desarrollo Web.</p>
                     <div class="social-icons">
                         <a href="https://www.instagram.com/nel_alvs/" target="_blank"><i class="fab fa-instagram"></i></a> 
                         <a href="https://github.com/AlvarezNelson5623" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/nelson-ivan-alvarez-suarez/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.linkedin.com/in/nelson-ivan-alvarez-suarez-a46675250/" target="_blank"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
             <div class="card" onclick="duplicateCard(this)">
                 <img src="img/brayan.jpeg"" alt="Miembro del equipo 1" class="card-img">
+                <div class="image-container">
+                    <div class="overlay-text">Nivel 7</div>
+                </div>
                 <div class="card-body">
                     <h2 class="card-title">Brayan Yecid Aparicio Goyeneche</h2>
                     <p class="card-description">Brayan Yecid Aparicio Goyeneche originario de Covarachia(Boy), curso sus estudios de bachillerato en la institución educativa San Luis Beltrán del mismo municio, actualmente es un estudiante de séptimo semestre de ingeniería de sistemas en la Universidad Industrial de Santander(UIS), con un fuerte interés en las redes computacionales y la inteligencia artificial. Cuando no está inmerso en el estudio de estas áreas, disfruta de los deportes extremos, combinando su amor por la tecnología con la adrenalina. Para conocer más sobre su trayectoria y aficiones, puedes seguirlo en Instagram.</p>
@@ -292,6 +309,9 @@
             </div>
             <div class="card" onclick="duplicateCard(this)">
                 <img src="img/carlos.jpeg" alt="Miembro del equipo 1" class="card-img">
+                <div class="image-container">
+                    <div class="overlay-text">Nivel 7</div>
+                </div>
                 <div class="card-body">
                     <h2 class="card-title">Carlos Andres Galeano martinez</h2>
                     <p class="card-description">Carlos Andrés Galeano Martínez originario de Vélez (Santander), actualmente cursa el sexto nivel de ingeniería de sistemas en la universidad industrial de Santander(UIS), estudió su bachillerato en el colegio sagrado corazón de Jesús hermanas bethlemitas de Vélez Santander, la pasión por la tecnología lo ha llevado a desarrollar habilidades en diversas áreas de la informática y deportes como el futbol, el está continuamente buscando aprender y poder seguir con sus estudios. Para conocer más sobre él puedes seguirlo en Instagram.</p>
@@ -304,6 +324,9 @@
             </div>
             <div class="card" onclick="duplicateCard(this)">
                 <img src="img/sebastian.jpeg" alt="Miembro del equipo 1" class="card-img">
+                <div class="image-container">
+                    <div class="overlay-text">Nivel 7</div>
+                </div>
                 <div class="card-body">
                     <h2 class="card-title">Juan Sebastian Landinez Arenales</h2>
                     <p class="card-description">Nacido en la ciudad de Bucaramanga, Santander el 26 de Marzo de 2004. Estudios de primaria y bachillerato en el Colegio Privado Franciscano del Virrey Solis de Bucaramanga. Me gusta el deporte, la  actividad física. Aficionado a la recocha. En mis tiempos libres practico deportes como el Volleyball, futbol  tenis. Me entretengo saliendo los fines de semana en la noche con mis amigos. Hablo ingles con fluidez e intento practicar otros idiomas en mis tiempos libres. Me gusta mirar la lluvia desde mi ventana mientras bebo una taza de café caliente y leo un libro. También medito en las mañanas antes de iniciar el día.</p>
@@ -316,6 +339,9 @@
             </div>
             <div class="card" onclick="duplicateCard(this)">
                 <img src="img/sergio.jpeg" alt="Miembro del equipo 1" class="card-img">
+                <div class="image-container">
+                    <div class="overlay-text">Nivel 7</div>
+                </div>
                 <div class="card-body">
                     <h2 class="card-title">Sergio Nelson Alberto Gómez Gil</h2>
                     <p class="card-description">Es de Colombia, Santander de un pueblo llamado El Páramo y allí complete mis estudios. Desde pequeño adquirí un gusto a los juegos y la informática y me incline por la opción de estudiar una carrera que tuviera programación o algo relacionado con esto, actualmente ando realizando un proyecto independiente con un amigo de la universidad pontificia de un juego indie con el nombre actual de "Bloody Dagger" aún está en fases tempranas de desarrollo pero la idea sigue en curso. Este 2024-2 en séptimo semestre de ingeniería de sistemas, aficionado al boxeo ya desde hace unos años y Entusiasta de la Inteligencia Artificial y la Tecnología.</p>
