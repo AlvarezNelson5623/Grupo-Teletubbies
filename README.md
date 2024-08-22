@@ -1,1 +1,1 @@
-# **_Practicas de Laboratorio_**
+# **_Prácticas de Laboratorio_**

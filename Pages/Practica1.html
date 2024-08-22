@@ -156,12 +156,39 @@
             color: #1a73e8;
         }
         
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #000;
+        }
 
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 2px solid;
+            border-image: linear-gradient(to bottom right, #00f, #00a);
+            border-image-slice: 1;
+        }
+
+        th {
+            background-color: #111;
+        }
+
+        tr:hover {
+            background-color: #222;
+        }
+
+        iframe {
+            width: 100%;
+            height: 400px; /* Ajusta la altura según sea necesario */
+            border: none;
+        }
     </style>
 </head>
 <body>
     <nav>
-        <div class="logo"><a href="../index.html"><img style="width: 240px; height: 70px;" src="../img/Grupo.png" alt=""></a></div>
+        <div class="logo"><a href="../index.html"><img style="width: 240px; height: 70px;" src="../../img/Grupo.png" alt=""></a></div>
         <div>
             <h2>Práctica 1: Introducción al Curso</h2>
         </div>
@@ -171,12 +198,27 @@
                 <a href="#" class="dropbtn">Prácticas</a>
                 <div class="dropdown-content">
                     <a href="Practica1.html">Práctica 1</a>
-                    <a href="#">Práctica 2</a>
-                    <a href="#">Práctica 3</a>
+
                 </div>
             </li>
             <li><a href="#">Trabajo Final</a></li>
         </ul>
     </nav>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Archivos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <!-- Aquí se carga la lista de archivos desde un directorio específico -->
+                    <iframe src="ruta/del/directorio/"></iframe>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
