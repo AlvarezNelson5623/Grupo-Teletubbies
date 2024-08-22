@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/codefolder_99364.png" type="image/x-icon">
+    <title>GT - Practica 1</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Incluye íconos de FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        nav {
+            background-color: #1a1a1a;
+            padding: 7px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            color: #e0e0e0;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li {
+            display: inline;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #e0e0e0;
+            font-size: 18px;
+        }
+
+        .nav-links .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .nav-links .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .nav-links .dropdown-content a {
+            color: #e0e0e0;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .nav-links .dropdown-content a:hover {
+            background-color: #575757;
+        }
+
+        .nav-links .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            padding: 2em;
+        }
+
+        .team {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2em;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: space-evenly;
+        }
+
+        .card {
+            background-color: #1f1f1f;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            color: #e0e0e0;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        .card:active {
+            transform: scale(1.05) rotate(3deg);
+        }
+
+        .card-img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 1em;
+            position: relative;
+        }
+
+        .card-title {
+            font-size: 1.5em;
+            margin: 0.5em 0;
+            text-align: center;
+        }
+
+        .card-description {
+            font-size: 12px;
+            color: #b0b0b0;
+            text-align: justify;
+            
+            display: none; /* Oculta la descripción inicialmente */
+        }
+
+        .social-icons a {
+            text-decoration: none;
+            color: #e0e0e0;
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+        .social-icons a:hover {
+            color: #1a73e8;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo"><a href="../index.html"><img style="width: 240px; height: 70px;" src="../img/Grupo.png" alt=""></a></div>
+        <div>
+            <h2>Práctica 1: Introducción al Curso</h2>
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Inicio</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Prácticas</a>
+                <div class="dropdown-content">
+                    <a href="Practica1.html">Práctica 1</a>
+                    <a href="#">Práctica 2</a>
+                    <a href="#">Práctica 3</a>
+                </div>
+            </li>
+            <li><a href="#">Trabajo Final</a></li>
+        </ul>
+    </nav>
+</body>
+</html>
