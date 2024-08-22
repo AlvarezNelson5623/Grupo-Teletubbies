@@ -1,6 +1,7 @@
 # **_Practica 1: Introducción al Curso_**
 Explicación del Desarrollo de la práctica ![Badge Finalizado](https://img.shields.io/badge/STATUS-PROGRESS-green)
 
+
 ### 1. ¿Que consideraciones importantes debe tener en cuenta para trabajar con Nand2Tetris?                                                                                                                                             
 <p align="justify"> Los usuarios que deseen trabajar con Nand2Tetris deben de contar con una base solida en logica digital esto incluye el funcionamiento de puertas logicas tales como AND, OR, NOT, NAND, etc asi mismo debe de tener conocimientos en algebra booleana y la construccion de circuitos combinacionales y secuenciales. Ademas es importante estar familiarizado con conceptos basicos de arquitectura de computadores, como la organizacion de una CPU, memoria, bases de datos, etc.
 </p> 
@@ -19,4 +20,8 @@ Explicación del Desarrollo de la práctica ![Badge Finalizado](https://img.shie
 [Documentacion Arduino](https://www.arduino.cc/)
 
 [Documentacion Logisim](https://es.wikipedia.org/wiki/Logisim)
+
+[Documentacion Tetris](https://medium.com/@misbah.anwar/from-nand-to-tetris-nand2tetris-project-1-logic-gates-8de7044de4b4)
+
+[Documentacion Implementacion](https://www.nand2tetris.org/_files/ugd/44046b_f2c9e41f0b204a34ab78be0ae4953128.pdf)
 
