@@ -2,23 +2,26 @@
 Explicación del Desarrollo de la práctica ![Badge Finalizado](https://img.shields.io/badge/STATUS-FINALIZADO-green)
 # Compuertas: Implementación
 
-Las puertas primitivas son los bloques fundamentales que permiten construir cualquier cosa, similar a los axiomas en matemáticas. Estas puertas vienen listas para usarse, permitiendo que crees otras puertas y chips sin preocuparte por su funcionamiento interno. En el diseño de la computadora que estamos iniciando, hemos decidido basar todo en una sola puerta primitiva: la puerta NAND. Aquí comenzaremos a explicar la primera fase de este proyecto, construyendo el hardware puerta por puerta.
+Las compuertas logicas son los bloques fundamentales que permiten construir cualquier cosa, similar a los axiomas en matemáticas. Estas puertas vienen listas para usarse, permitiendo que crees otras puertas y chips sin preocuparte por su funcionamiento interno. En el diseño de la computadora que estamos iniciando, hemos decidido basar todo en una sola puerta primitiva: la puerta NAND. Aquí comenzaremos a explicar la primera fase de este proyecto, construyendo el hardware puerta por puerta.
 
-## Instrucciones Generales
 
-Nuestras instrucciones no están completamente detalladas porque queremos que seas tú quien diseñe las puertas. Recuerda:
-- Cada puerta se puede implementar de varias formas.
-- Cuanto más simple sea la implementación, mejor.
+## [Puerta And](https://github.com/AlvarezNelson5623/Grupo-Teletubbies/blob/main/Pr%C3%A1cticas%20Laboratorio/Pr%C3%A1ctica%201/And.hdl)
+ **Cómo Funciona:** El circuito descrito en el código implementa una puerta AND utilizando puertas NAND y NOT.
+**Descripción del Circuito**
+1. **Puerta NAND:**
+   - Toma las entradas `a` y `b`.
+   - La salida de la puerta NAND será 1 si al menos una de las entradas es 0. Solo será 0 si ambas entradas son 1.
+2. **Puerta NOT:**
+   - La salida de la puerta NAND (`out1`) se pasa a una puerta NOT.
+   - La puerta NOT invierte esta salida.
+3. **Salida Final:**
+   - La salida final del circuito será 1 solo si ambas entradas originales (`a` y `b`) son 1.
 
 ### Puerta Not
 
 - **Descripción**: Hacer una puerta Not usando una puerta NAND es sencillo.
 - **Consejo**: Piensa en positivo.
 
-### Puerta And
-
-- **Descripción**: También es fácil de implementar.
-- **Consejo**: Piensa en negativo.
 
 ### Puertas Or/Xor
 
