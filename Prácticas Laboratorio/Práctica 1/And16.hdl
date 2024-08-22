@@ -31,6 +31,3 @@ CHIP And16 {
     And(a=a[15], b=b[15], out=out[15]);
 }
 
-
-
-https://medium.com/@misbah.anwar/from-nand-to-tetris-nand2tetris-project-1-logic-gates-8de7044de4b4
