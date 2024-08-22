@@ -14,10 +14,8 @@ CHIP Mux4Way16 {
     OUT out[16];
     
     PARTS:
-      //Primero miramos el primer dígito del selector, para reducir las
-      //posibilidades a 2
-      Mux16(a=a, b=b, sel=sel[0], out=ab);
-      Mux16(a=c, b=d, sel=sel[0], out=cd);
-      //Escogemos cual de las 2 restantes es al final según el selector
-      Mux16(a=ab, b=cd, sel=sel[1], out=out);
+    //// Here your code.
+    Mux16(a=a, b=b, sel=sel[0], out=ab);
+    Mux16(a=c, b=d, sel=sel[0], out=cd);
+    Mux16(a=ab, b=cd, sel=sel[1], out=out);
 }
