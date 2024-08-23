@@ -187,7 +187,7 @@ Lo anterior tambien aplica para [Or16](https://github.com/AlvarezNelson5623/Grup
 
 [Documentacion Logisim](https://es.wikipedia.org/wiki/Logisim)
 
-[Documentacion Tetris](https://medium.com/@misbah.anwar/from-nand-to-tetris-nand2tetris-project-1-logic-gates-8de7044de4b4)
+[Documentacion Nand2tetris](https://medium.com/@misbah.anwar/from-nand-to-tetris-nand2tetris-project-1-logic-gates-8de7044de4b4)
 
 [Documentacion Implementacion](https://www.nand2tetris.org/_files/ugd/44046b_f2c9e41f0b204a34ab78be0ae4953128.pdf)
 
