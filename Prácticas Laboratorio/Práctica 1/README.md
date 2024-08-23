@@ -76,6 +76,93 @@ Dependiendo del valor del bit `sel`:
 
 Lo anterior tambien aplica para [Mux16](https://github.com/AlvarezNelson5623/Grupo-Teletubbies/blob/main/Prácticas%20Laboratorio/Práctica%201/Mux16.hdl) , [Mux4Way16](https://github.com/AlvarezNelson5623/Grupo-Teletubbies/blob/main/Prácticas%20Laboratorio/Práctica%201/Mux4Way16.hdl) y [Mux8Way16](https://github.com/AlvarezNelson5623/Grupo-Teletubbies/blob/main/Prácticas%20Laboratorio/Práctica%201/Mux8Way16.hdl), solo que cambia el número de entradas y salidas. 
 
+# [Puerta Not](https://github.com/AlvarezNelson5623/Grupo-Teletubbies/blob/main/Prácticas%20Laboratorio/Práctica%201/Not.hdl)
+
+
+**Cómo Funciona:** El circuito descrito en el código implementa una puerta NOT utilizando una puerta NAND. La puerta NOT toma una única entrada (`in`) y produce una salida (`out`) que es el complemento de la entrada.
+
+**Descripción del Circuito**
+
+1. **Puerta NAND**
+- La puerta NAND toma la entrada `in` y produce una salida que es el resultado de la operación NAND.
+- La operación NAND se define como el complemento de la operación AND. Por lo tanto, la salida de la puerta NAND será 0 solo si todas las entradas son 1; en cualquier otro caso, la salida será 1.
+
+2. **Puerta NOT**
+- La puerta NOT en este caso está implementada utilizando una puerta NAND con una sola entrada (`in`).
+- La salida de la puerta NAND será `out`, que es el complemento de la entrada `in`.
+
+3. **Salida Final (`out`)**
+- La salida `out` será 1 si la entrada `in` es 0.
+- La salida `out` será 0 si la entrada `in` es 1.
+
+Lo anterior tambien aplica para [Not16](https://github.com/AlvarezNelson5623/Grupo-Teletubbies/blob/main/Prácticas%20Laboratorio/Práctica%201/Not16.hdl), solo que con 16 puertas.
+
+# [Puerta Or](https://github.com/AlvarezNelson5623/Grupo-Teletubbies/blob/main/Prácticas%20Laboratorio/Práctica%201/Or.hdl)
+
+**Cómo Funciona:** El circuito descrito en el código implementa una puerta OR utilizando puertas NOT y NAND. La puerta OR toma dos entradas (`a` y `b`) y produce una salida (`out`). La salida será 1 si al menos una de las entradas es 1; de lo contrario, será 0.
+
+**Descripción del Circuito**
+
+1. **Puerta NOT (para `a` y `b`)**
+- Toma las entradas `a` y `b` por separado.
+- La salida de la puerta NOT para `a` es `notAOut`, que es el complemento de `a` (es decir, si `a` es 0, `notAOut` será 1; si `a` es 1, `notAOut` será 0).
+- La salida de la puerta NOT para `b` es `notBOut`, que es el complemento de `b` (es decir, si `b` es 0, `notBOut` será 1; si `b` es 1, `notBOut` será 0).
+
+2. **Puerta NAND**
+- La puerta NAND toma las salidas `notAOut` y `notBOut` de las puertas NOT.
+- La salida de la puerta NAND es `out`, que es el resultado de la operación NAND aplicada a `notAOut` y `notBOut`.
+
+3. **Operación de la Puerta NAND**
+- La operación NAND produce una salida que es el complemento de la operación AND. Por lo tanto, la salida de la puerta NAND será 0 solo si ambas entradas son 1; en cualquier otro caso, la salida será 1.
+- Esto coincide con la lógica de una puerta OR: la salida será 1 si al menos una de las entradas es 1.
+
+4. **Salida Final (`out`)**
+- La salida `out` será 1 si al menos una de las entradas (`a` o `b`) es 1.
+- La salida `out` será 0 solo si ambas entradas (`a` y `b`) son 0.
+
+Lo anterior tambien aplica para [Or16](https://github.com/AlvarezNelson5623/Grupo-Teletubbies/blob/main/Prácticas%20Laboratorio/Práctica%201/Or16.hdl) y [Or8Way.](https://github.com/AlvarezNelson5623/Grupo-Teletubbies/blob/main/Prácticas%20Laboratorio/Práctica%201/Or8Way.hdl)
+
+# [Puerta Xor](https://github.com/AlvarezNelson5623/Grupo-Teletubbies/blob/main/Prácticas%20Laboratorio/Práctica%201/Xor.hdl)
+
+**Cómo Funciona:** El circuito descrito en el código implementa una puerta XOR (Exclusive OR). La puerta XOR toma dos entradas (`a` y `b`) y produce una salida (`out`). La salida será 1 si exactamente una de las entradas es 1; si ambas entradas son iguales (ambas 0 o ambas 1), la salida será 0.
+
+**Descripción del Circuito**
+
+1. **Puertas NOT**
+
+- **Puerta NOT para `a`:**
+  - Toma la entrada `a`.
+  - La salida es `nota`, que es el complemento de `a` (es decir, si `a` es 0, `nota` será 1; si `a` es 1, `nota` será 0).
+
+- **Puerta NOT para `b`:**
+  - Toma la entrada `b`.
+  - La salida es `notb`, que es el complemento de `b` (es decir, si `b` es 0, `notb` será 1; si `b` es 1, `notb` será 0).
+
+2. **Puertas AND** 
+
+- **Puerta AND para `w1`:**
+  - Toma las entradas `a` y `notb`.
+  - La salida es `w1`, que será 1 solo si `a` es 1 y `notb` (complemento de `b`) también es 1. Esto ocurre cuando `a` es 1 y `b` es 0.
+
+- **Puerta AND para `w2`:**
+  - Toma las entradas `nota` (complemento de `a`) y `b`.
+  - La salida es `w2`, que será 1 solo si `nota` es 1 y `b` es 1. Esto ocurre cuando `a` es 0 y `b` es 1.
+
+3. **Puerta OR**
+
+- **Puerta OR:**
+  - Toma las salidas `w1` y `w2`.
+  - La salida es `out`, que será 1 si al menos una de las entradas (`w1` o `w2`) es 1. 
+
+4. **Operación de la Puerta OR**
+
+- La salida `out` será 1 si exactamente una de las entradas `a` o `b` es 1.
+- La salida será 0 si ambas entradas son iguales (ambas 0 o ambas 1).
+
+5. **Salida Final (`out`)**
+
+- La salida `out` será 1 si solo una de las entradas (`a` o `b`) es 1.
+- La salida `out` será 0 si ambas entradas son iguales (ambas 0 o ambas 1).
 
 
 # Preguntas Adicionales
