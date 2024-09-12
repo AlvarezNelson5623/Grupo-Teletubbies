@@ -11,3 +11,5 @@
 > `Enlace Pagina Web:`  [https://alvareznelson5623.github.io/Grupo-Teletubbies/](https://alvareznelson5623.github.io/Grupo-Teletubbies/)
 ## Desarrollo Práctica # 1: Introducción al Curso ![Badge Finalizado](https://img.shields.io/badge/STATUS-FINALIZADO-green)
 > [🔐Modificar Sección](https://github.com/AlvarezNelson5623/Grupo-Teletubbies/tree/main/Prácticas%20Laboratorio/Práctica%201) Solo Colaboradores.
+## Desarrollo Práctica # 2: Lógica Aritmética | Lógica Secuencial ![Badge Finalizado](https://img.shields.io/badge/STATUS-FINALIZADO-green)
+> [🔐Modificar Sección](https://github.com/AlvarezNelson5623/Grupo-Teletubbies/tree/main/Prácticas%20Laboratorio/Práctica%202) Solo Colaboradores.
