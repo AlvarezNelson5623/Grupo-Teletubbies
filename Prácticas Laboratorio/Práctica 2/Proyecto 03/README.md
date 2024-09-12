@@ -245,6 +245,34 @@ El diseño de hardware proporcionado puede ser probado usando el simulador de ha
 
 El chip **RAM512** es un componente clave en la construcción de arquitecturas informáticas más complejas, proporcionando la capacidad de almacenar y recuperar datos de manera eficiente utilizando bloques de memoria más pequeños.
 
+# Memoria de 64 registros (RAM64)
+
+El **RAM64** es una memoria que almacena 64 registros de 16 bits. La memoria se organiza en 8 bloques de 8 registros, y cada bloque puede ser accedido o modificado en función de la señal de carga (`load`) y la dirección proporcionada.
+
+### Entradas y Salidas
+
+- **Entrada (`in[16]`)**: El valor de 16 bits que se cargará en la memoria si la señal `load` está activa.
+- **Entrada (`load`)**: Señal de control que determina si el valor de `in` debe ser cargado en la ubicación de memoria especificada.
+- **Entrada (`address[6]`)**: Dirección de 6 bits que especifica la ubicación de memoria a la que se accede. La dirección se divide en dos partes: los 3 bits superiores seleccionan el bloque de memoria y los 3 bits inferiores seleccionan la ubicación dentro del bloque.
+- **Salida (`out[16]`)**: El valor almacenado en la ubicación de memoria especificada por `address`.
+
+## Operación del Circuito
+
+El circuito realiza las siguientes operaciones para gestionar la memoria:
+
+1. **Selección del Bloque de Memoria**: La señal `load` se distribuye a uno de los 8 bloques de memoria `RAM8` mediante un **DMux8Way**. Los 3 bits superiores de la dirección (`address[3..5]`) determinan a cuál de los 8 bloques se envía la señal de carga (`load0` a `load7`).
+
+2. **Acceso a los Bloques de Memoria**: Cada uno de los 8 bloques de memoria `RAM8` maneja 8 registros de 16 bits. Cada bloque recibe la señal de carga correspondiente y la dirección de 3 bits (`address[0..2]`), y emite su salida (`out0` a `out7`).
+
+3. **Selección del Valor de Salida**: La salida de los 8 bloques de memoria se combina usando un **Mux8Way16**, que selecciona la salida del bloque correspondiente según los 3 bits superiores de la dirección (`address[3..5]`). La salida seleccionada se emite como la salida del módulo `RAM64`.
+
+## Partes Utilizadas
+
+- **DMux8Way**: Demultiplexor que dirige la señal de carga a uno de los 8 bloques de memoria basándose en los 3 bits superiores de la dirección.
+- **RAM8**: Memoria de 8 registros de 16 bits, que se utiliza para construir la memoria de 64 registros.
+- **Mux8Way16**: Multiplexor que selecciona entre las salidas de los 8 bloques de memoria según los 3 bits superiores de la dirección.
+
+Este diseño permite gestionar eficientemente una memoria de 64 registros, con capacidad de lectura y escritura en cualquier ubicación especificada por la dirección de 6 bits.
 
 
 
