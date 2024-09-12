@@ -181,4 +181,70 @@ El circuito realiza las siguientes operaciones para gestionar la memoria:
 Este diseño permite gestionar eficientemente una memoria de 4K registros, con capacidad de lectura y escritura en cualquier ubicación especificada por la dirección de 12 bits.
 
 
+# RAM512 - Implementación de Memoria
+
+
+El chip **RAM512** es una memoria de 512 registros, donde cada registro tiene 16 bits de ancho. El chip proporciona una interfaz para leer y escribir datos en ubicaciones específicas de la memoria, utilizando una dirección de 9 bits.
+
+## Especificaciones
+
+- **Entradas**:
+  - `in[16]`: Datos de 16 bits que se escribirán en la memoria.
+  - `load`: Una señal de control. Cuando está en `1`, los datos de entrada se cargan en la ubicación de memoria especificada por `address`.
+  - `address[9]`: La dirección de 9 bits de la ubicación de memoria para leer o escribir.
+
+- **Salida**:
+  - `out[16]`: Los datos de 16 bits almacenados en la ubicación de memoria especificada por `address`.
+
+## Componentes Utilizados
+
+El chip **RAM512** está construido utilizando componentes más pequeños, principalmente 8 instancias de **RAM64**, junto con multiplexores y demultiplexores:
+
+- **DMux8Way**: Distribuye la señal `load` a uno de los ocho bloques **RAM64** basándose en `address[6..8]`.
+- **RAM64**: Ocho instancias de esta memoria se utilizan para construir la memoria de 512 registros.
+- **Mux8Way16**: Selecciona la salida correcta de uno de los ocho bloques **RAM64** según `address[6..8]`.
+
+## Flujo Lógico
+
+1. **Dirección y partición**:
+   - La dirección de 9 bits se divide en dos partes:
+     - `address[0..5]` selecciona la dirección dentro de cada bloque **RAM64**.
+     - `address[6..8]` selecciona cuál de los ocho bloques **RAM64** se utilizará.
+
+2. **Escritura en Memoria**:
+   - Si `load = 1`, el **DMux8Way** activa uno de los ocho bloques **RAM64** para almacenar los datos, basándose en `address[6..8]`.
+   - Los datos se almacenan en la dirección específica dentro del bloque seleccionado, determinada por `address[0..5]`.
+
+3. **Lectura de Memoria**:
+   - El **Mux8Way16** selecciona la salida correcta de uno de los ocho bloques **RAM64** basándose en `address[6..8]`.
+   - La salida del bloque seleccionado se envía al puerto `out[16]`.
+
+## Ejemplo de Uso
+
+Para almacenar el valor `1010101010101010` en la dirección `000000000`:
+
+- Configura `load = 1` para escribir el valor.
+- Después de un ciclo de reloj, configura `load = 0` para leer el valor almacenado en la memoria.
+
+## Pruebas
+
+El diseño de hardware proporcionado puede ser probado usando el simulador de hardware:
+
+1. Carga el archivo **RAM512.hdl** en el **Simulador de Hardware**.
+2. Ejecuta el archivo de prueba correspondiente **RAM512.tst**.
+3. Verifica que la salida coincida con los resultados esperados especificados en **RAM512.cmp**.
+
+## Archivos en este Proyecto
+
+- `RAM512.hdl`: Implementación en HDL del chip RAM512.
+- `RAM512.tst`: Script de prueba para verificar la funcionalidad del chip.
+- `RAM512.cmp`: Archivo de comparación esperado para las pruebas.
+- `RAM512.hack`: Archivo binario que se puede cargar en el Simulador de Hardware para pruebas.
+
+## Conclusión
+
+El chip **RAM512** es un componente clave en la construcción de arquitecturas informáticas más complejas, proporcionando la capacidad de almacenar y recuperar datos de manera eficiente utilizando bloques de memoria más pequeños.
+
+
+
 
