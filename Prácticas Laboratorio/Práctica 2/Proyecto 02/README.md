@@ -1,3 +1,34 @@
+# Implementación de la ALU
+
+Se Implementó una ALU (Unidad Aritmética Lógica) de 16 bits que realiza varias operaciones sobre dos entradas de 16 bits `x` y `y`, basadas en seis bits de control, y proporciona dos salidas de estado.
+
+## Funcionalidad
+
+La ALU puede realizar las siguientes funciones según los bits de control:
+
+- **zx (poner x en cero)**: Si es `1`, establece `x = 0`.
+- **nx (negar x)**: Si es `1`, niega la entrada `x`.
+- **zy (poner y en cero)**: Si es `1`, establece `y = 0`.
+- **ny (negar y)**: Si es `1`, niega la entrada `y`.
+- **f (selección de función)**: Si es `1`, calcula `out = x + y`. Si es `0`, calcula `out = x & y`.
+- **no (negar salida)**: Si es `1`, niega el valor de salida `out`.
+
+### Salidas de Estado
+- **out[16]**: El resultado de 16 bits de la operación en las entradas `x` y `y`.
+- **zr**: `1` si `out == 0`, de lo contrario `0`.
+- **ng**: `1` si `out < 0`, de lo contrario `0`.
+
+## Operaciones de la ALU
+
+La ALU realiza los siguientes pasos:
+
+1. Poner en cero o negar `x` y `y` dependiendo de los bits de control `zx`, `nx`, `zy`, `ny`.
+2. Aplicar la función seleccionada (`x + y` o `x & y`), determinada por el bit `f`.
+3. Negar la salida si `no == 1`.
+4. Establecer las banderas `zr` y `ng` para indicar si el resultado es cero o negativo.
+
+
+
 # Adder16
 
 Este proyecto es parte del curso de **nand2tetris** y el libro **The Elements of Computing Systems** de Nisan y Schocken. El objetivo es implementar un sumador de 16 bits que realiza la suma de dos números binarios de 16 bits.
