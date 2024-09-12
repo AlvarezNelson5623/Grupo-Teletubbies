@@ -48,6 +48,8 @@ Este proyecto introduce la lógica secuencial, que es fundamental para la creaci
 2. Cargue los archivos `.hdl` correspondientes a cada componente en el simulador.
 3. Ejecute las pruebas automáticas proporcionadas para verificar el funcionamiento correcto de cada chip.
 
+---
+
 # Diferencias entre Lógica Aritmética y Lógica Secuencial
 
 En la ingeniería de sistemas y la computación, es fundamental entender las diferencias entre los distintos tipos de lógica utilizados en el diseño de circuitos digitales. Las dos categorías principales son la lógica aritmética y la lógica secuencial. A continuación, se detallan sus diferencias clave y aplicaciones.
