@@ -333,4 +333,27 @@ El diseño de hardware proporcionado puede ser probado usando el simulador de ha
 
 El chip **RAM8** es un componente fundamental para la construcción de arquitecturas informáticas más complejas, proporcionando la capacidad de almacenar y recuperar datos de manera eficiente en un rango de direcciones especificadas.
 
+# Registro de 16 bits (Register)
+
+El **Register** es un componente de almacenamiento de 16 bits que mantiene un valor de 16 bits. Puede actualizar su valor interno cuando se le indica, dependiendo de la señal de carga (`load`).
+
+### Entradas y Salidas
+
+- **Entrada (`in[16]`)**: El valor de 16 bits que se cargará en el registro si la señal `load` está activa.
+- **Entrada (`load`)**: Señal de control que determina si el valor de `in` debe ser cargado en el registro. Si `load` es `1`, el valor de `in` se carga en el registro. Si `load` es `0`, el valor del registro no cambia.
+- **Salida (`out[16]`)**: El valor actual almacenado en el registro.
+
+## Operación del Circuito
+
+El circuito realiza las siguientes operaciones para gestionar el registro:
+
+1. **Cargar Valor en el Registro**: Cada uno de los 16 bits del registro se implementa utilizando un componente `Bit`, que es un registro de 1 bit. Cada `Bit` recibe la señal de entrada correspondiente (`in[0]` a `in[15]`) y la señal de control `load`.
+
+2. **Actualización del Valor**: Si la señal `load` es `1`, cada `Bit` actualizará su valor con el valor de entrada correspondiente. Si `load` es `0`, el valor del `Bit` se mantiene sin cambios. Esta operación asegura que el valor del registro se actualice correctamente en función de la señal de carga.
+
+## Partes Utilizadas
+
+- **Bit**: Componente de registro de 1 bit. Cada bit del registro de 16 bits se implementa utilizando un componente `Bit` individual.
+
+Este diseño proporciona una forma eficiente de almacenar y actualizar un valor de 16 bits, manteniendo el valor interno del registro hasta que se indique lo contrario mediante la señal de carga.
 
