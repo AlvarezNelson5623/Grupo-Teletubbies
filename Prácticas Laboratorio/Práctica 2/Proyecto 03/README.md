@@ -85,3 +85,66 @@ El circuito realiza las siguientes operaciones en secuencia:
 
 Este diseño permite que el contador se gestione de manera flexible y eficiente, con control completo sobre su carga, incremento y reinicio.
 
+# RAM16K - Implementación de Memoria
+
+
+El chip **RAM16K** es una memoria de 16K x 16 bits, lo que significa que puede almacenar hasta 16,384 palabras, cada una de 16 bits de ancho. El chip proporciona una interfaz para leer y escribir datos en ubicaciones específicas de la memoria, utilizando una dirección de 14 bits.
+
+## Especificaciones
+
+- **Entradas**:
+  - `in[16]`: Datos de 16 bits que se escribirán en la memoria.
+  - `load`: Bit de control. Si está en `1`, los datos de entrada se cargan en la ubicación de memoria especificada por `address`.
+  - `address[14]`: La dirección de 14 bits de la ubicación de memoria para leer o escribir.
+
+- **Salida**:
+  - `out[16]`: Los datos de 16 bits almacenados en la ubicación de memoria especificada por `address`.
+
+## Componentes Utilizados
+
+El chip **RAM16K** se construye utilizando componentes más pequeños, principalmente 4 instancias de **RAM4K**, cada una capaz de almacenar 4K palabras, junto con multiplexores y demultiplexores:
+
+- **DMux4Way**: Distribuye la señal `load` al chip **RAM4K** correcto, según `address[12..13]`.
+- **RAM4K**: Se utilizan cuatro instancias de esta memoria para construir la memoria de 16K.
+- **Mux4Way16**: Selecciona la salida correcta de una de las cuatro instancias de **RAM4K** según `address[12..13]`.
+
+## Flujo Lógico
+
+1. **Dirección**:
+   - La dirección de 14 bits se divide en dos partes:
+     - `address[12..13]` selecciona cuál de los cuatro chips **RAM4K** se utiliza.
+     - `address[0..11]` proporciona la dirección específica dentro de cada bloque **RAM4K**.
+
+2. **Escritura en Memoria**:
+   - Si `load = 1`, los datos de entrada (`in[16]`) se almacenan en la ubicación de memoria especificada por `address[0..11]` dentro del chip **RAM4K** seleccionado.
+
+3. **Lectura de Memoria**:
+   - El **Mux4Way16** selecciona la salida de datos apropiada de uno de los cuatro chips **RAM4K** según `address[12..13]`.
+
+## Ejemplo de Uso
+
+Para almacenar el valor `1010101010101010` en la dirección `00000000000001`:
+
+- Configura `load = 1` para escribir el valor.
+- Después de un ciclo de reloj, configura `load = 0` para leer el valor almacenado en la memoria.
+
+## Pruebas
+
+El diseño de hardware proporcionado puede probarse usando el simulador de hardware:
+
+1. Carga el archivo **RAM16K.hdl** en el **Simulador de Hardware**.
+2. Ejecuta el archivo de prueba correspondiente **RAM16K.tst**.
+3. Verifica que la salida coincida con los resultados esperados especificados en **RAM16K.cmp**.
+
+## Archivos en este Proyecto
+
+- `RAM16K.hdl`: Implementación en HDL del chip RAM16K.
+- `RAM16K.tst`: Script de prueba para verificar la funcionalidad del chip.
+- `RAM16K.cmp`: Archivo de comparación esperado para las pruebas.
+- `RAM16K.hack`: Archivo binario que se puede cargar en el Simulador de Hardware para pruebas.
+
+## Conclusión
+
+El chip **RAM16K** es un componente crucial en la construcción de arquitecturas informáticas más complejas, proporcionando la capacidad de almacenar y recuperar datos de manera eficiente utilizando componentes de memoria jerárquicos.
+
+
