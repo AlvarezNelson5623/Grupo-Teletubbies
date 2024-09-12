@@ -147,4 +147,38 @@ El diseño de hardware proporcionado puede probarse usando el simulador de hardw
 
 El chip **RAM16K** es un componente crucial en la construcción de arquitecturas informáticas más complejas, proporcionando la capacidad de almacenar y recuperar datos de manera eficiente utilizando componentes de memoria jerárquicos.
 
+# Memoria de 4K registros (RAM4K)
+
+Una memoria de 4K registros, donde cada registro es de 16 bits. La memoria permite leer y escribir valores en la ubicación especificada por la dirección de 12 bits.
+
+## Funcionalidad
+
+El **RAM4K** es una memoria que almacena 4,096 registros de 16 bits. La memoria se organiza en 8 bloques de 512 registros, y cada bloque puede ser accedido o modificado en función de la señal de carga (`load`) y la dirección proporcionada.
+
+### Entradas y Salidas
+
+- **Entrada (`in[16]`)**: El valor de 16 bits que se cargará en la memoria si la señal `load` está activa.
+- **Entrada (`load`)**: Señal de control que determina si el valor de `in` debe ser cargado en la ubicación de memoria especificada.
+- **Entrada (`address[12]`)**: Dirección de 12 bits que especifica la ubicación de memoria a la que se accede. La dirección se divide en dos partes: los 3 bits superiores seleccionan el bloque de memoria y los 9 bits inferiores seleccionan la ubicación dentro del bloque.
+- **Salida (`out[16]`)**: El valor almacenado en la ubicación de memoria especificada por `address`.
+
+## Operación del Circuito
+
+El circuito realiza las siguientes operaciones para gestionar la memoria:
+
+1. **Selección del Bloque de Memoria**: La señal `load` se distribuye a uno de los 8 bloques de memoria `RAM512` mediante un **DMux8Way**. Los 3 bits superiores de la dirección (`address[9..11]`) determinan a cuál de los 8 bloques se envía la señal de carga (`load0` a `load7`).
+
+2. **Acceso a los Bloques de Memoria**: Cada uno de los 8 bloques de memoria `RAM512` maneja 512 registros de 16 bits. Cada bloque recibe la señal de carga correspondiente y la dirección de 9 bits (`address[0..8]`), y emite su salida (`out0` a `out7`).
+
+3. **Selección del Valor de Salida**: La salida de los 8 bloques de memoria se combina usando un **Mux8Way16**, que selecciona la salida del bloque correspondiente según los 3 bits superiores de la dirección (`address[9..11]`). La salida seleccionada se emite como la salida del módulo `RAM4K`.
+
+## Partes Utilizadas
+
+- **DMux8Way**: Demultiplexor que dirige la señal de carga a uno de los 8 bloques de memoria basándose en los 3 bits superiores de la dirección.
+- **RAM512**: Memoria de 512 registros de 16 bits, que se utiliza para construir la memoria de 4K.
+- **Mux8Way16**: Multiplexor que selecciona entre las salidas de los 8 bloques de memoria según los 3 bits superiores de la dirección.
+
+Este diseño permite gestionar eficientemente una memoria de 4K registros, con capacidad de lectura y escritura en cualquier ubicación especificada por la dirección de 12 bits.
+
+
 
