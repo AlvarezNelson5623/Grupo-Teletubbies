@@ -44,7 +44,7 @@ Este proyecto introduce la lógica secuencial, que es fundamental para la creaci
 - Archivos HDL para cada componente del proyecto.
 
 ## Cómo ejecutar las pruebas
-1. Descargue el simulador desde [Nand2Tetris](https://www.nand2tetris.org/software).
+1. Descargue o utilice el simulador online desde [Nand2Tetris](https://www.nand2tetris.org/software).
 2. Cargue los archivos `.hdl` correspondientes a cada componente en el simulador.
 3. Ejecute las pruebas automáticas proporcionadas para verificar el funcionamiento correcto de cada chip.
 
