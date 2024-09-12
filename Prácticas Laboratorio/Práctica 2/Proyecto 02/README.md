@@ -31,9 +31,6 @@ La ALU realiza los siguientes pasos:
 
 # Adder16
 
-Este proyecto es parte del curso de **nand2tetris** y el libro **The Elements of Computing Systems** de Nisan y Schocken. El objetivo es implementar un sumador de 16 bits que realiza la suma de dos números binarios de 16 bits.
-
-## Descripción
 
 El **Adder16** toma dos números binarios de 16 bits como entrada y calcula la suma bit a bit, utilizando tanto **HalfAdder** como **FullAdder**. La salida es la suma de los dos números de entrada, y el acarreo más significativo se ignora.
 
@@ -66,11 +63,66 @@ Para sumar los números binarios `a = 0000000000000011` (3 en decimal) y `b = 00
 out = 0000000000001000  # (8 en decimal)
 
 
+# FullAdder
+
+
+Un **Full Adder** es un circuito que suma tres bits de entrada: dos bits (`a`, `b`) y un bit de acarreo de una suma previa (`c`). El circuito genera dos salidas:
+- **sum**: La suma de los tres bits de entrada sin el acarreo.
+- **carry**: El acarreo resultante cuando la suma de los tres bits es 2 o más.
+
+### Entradas
+- `a`: Bit de entrada de 1 bit.
+- `b`: Bit de entrada de 1 bit.
+- `c`: Bit de acarreo de la suma previa.
+
+### Salidas
+- `sum`: Resultado de la suma de `a`, `b`, y `c` sin acarreo.
+- `carry`: Acarreo generado cuando la suma es mayor o igual a 2.
+
+### Comportamiento
+1. Un primer **Half Adder** suma `a` y `b`, generando una suma parcial (`sum1`) y un acarreo parcial (`carry1`).
+2. Un segundo **Half Adder** suma el bit de acarreo `c` con la suma parcial (`sum1`), generando la suma final (`sum`) y un acarreo parcial adicional (`carry2`).
+3. Se utiliza una puerta **OR** para combinar los acarreos parciales (`carry1` y `carry2`) y obtener el acarreo final (`carry`).
+
+## Uso
+
+### Instrucciones para simular el chip
+
+1. Abre el simulador de hardware de Hack del proyecto **nand2tetris**.
+2. Carga el archivo `FullAdder.hdl`.
+3. Ejecuta el script de prueba para verificar el funcionamiento del circuito.
+4. Ingresa valores de 1 bit para `a`, `b`, y `c`, y observa el resultado de `sum` y `carry`.
+
+### Ejemplos de uso
+
+#### Caso 1: `a = 0`, `b = 0`, `c = 0`
+- `sum = 0`
+- `carry = 0`
+
+#### Caso 2: `a = 1`, `b = 1`, `c = 0`
+- `sum = 0`
+- `carry = 1` (ya que `1 + 1 + 0 = 10` en binario)
+
+#### Caso 3: `a = 1`, `b = 1`, `c = 1`
+- `sum = 1`
+- `carry = 1` (ya que `1 + 1 + 1 = 11` en binario)
+
+### Pruebas
+
+Puedes utilizar los archivos de prueba proporcionados en el directorio `projects/02` de **nand2tetris** para validar el comportamiento del **FullAdder**. Los scripts de prueba `.tst` y los archivos de comparación `.cmp` automatizan el proceso de validación.
+
+## Estructura del Circuito
+
+El **Full Adder** está construido utilizando dos **Half Adders** y una puerta **OR**. Los **Half Adders** suman dos bits a la vez y generan un acarreo, mientras que la puerta **OR** se encarga de combinar los acarreos.
+
+- **Half Adder 1**: Suma `a` y `b` (genera `sum1` y `carry1`).
+- **Half Adder 2**: Suma `sum1` y `c` (genera `sum` y `carry2`).
+- **OR**: Combina `carry1` y `carry2` para producir el acarreo final (`carry`).
+
+
+
 # HalfAdder
 
-Este proyecto implementa un **Half Adder** (Sumador Parcial) en el lenguaje de descripción de hardware (HDL) como parte del curso **nand2tetris** y el libro **The Elements of Computing Systems** de Nisan y Schocken.
-
-## Descripción
 
 Un **Half Adder** es un circuito que suma dos bits de entrada y produce dos salidas:
 - **sum**: Representa la suma de los dos bits sin tener en cuenta el acarreo.
