@@ -1,6 +1,6 @@
 # Implementación de la ALU
 
-Se Implementó una ALU (Unidad Aritmética Lógica) de 16 bits que realiza varias operaciones sobre dos entradas de 16 bits `x` y `y`, basadas en seis bits de control, y proporciona dos salidas de estado.
+Se implementó una ALU (Unidad Aritmética Lógica) de 16 bits que realiza varias operaciones sobre dos entradas de 16 bits `x` y `y`, basadas en seis bits de control, y proporciona dos salidas de estado.
 
 ## Funcionalidad
 
@@ -121,5 +121,29 @@ El **HalfAdder** está compuesto por dos operaciones básicas:
 - **AND**: Para calcular el acarreo.
 - **XOR**: Para calcular la suma sin acarreo.
 
+# Incrementador de 16 bits (Inc16)
+
+Se implementó un incrementador de 16 bits que realiza la operación de suma aritmética, añadiendo 1 a la entrada de 16 bits.
+
+## Funcionalidad
+
+El incrementador **Inc16** toma una entrada de 16 bits (`in`) y produce una salida de 16 bits (`out`), donde `out` es el resultado de sumar 1 a la entrada `in`.
+
+### Comportamiento
+- **Entrada (`in[16]`)**: Un valor de 16 bits que se incrementará.
+- **Salida (`out[16]`)**: El resultado de sumar 1 al valor de la entrada.
+
+## Operación del Circuito
+
+El funcionamiento del incrementador se basa en el uso de la compuerta **Add16**, que realiza la suma de dos entradas de 16 bits. En este caso:
+
+- **a = in**: La entrada `in` es una de las entradas de la compuerta de suma.
+- **b = 1**: La segunda entrada es el valor binario 1. Esto se consigue fijando el bit menos significativo de `b` a `1` (`b[0] = true`) y los otros bits a `0` (`b[1..15] = false`).
+
+Al sumar estas dos entradas, la compuerta **Add16** produce en la salida `out` el valor de `in + 1`.
+
+## Partes Utilizadas
+
+- **Add16**: Realiza la operación de suma aritmética de dos valores de 16 bits.
 
 
