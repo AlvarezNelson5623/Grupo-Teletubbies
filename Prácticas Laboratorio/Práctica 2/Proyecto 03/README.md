@@ -275,4 +275,62 @@ El circuito realiza las siguientes operaciones para gestionar la memoria:
 Este diseño permite gestionar eficientemente una memoria de 64 registros, con capacidad de lectura y escritura en cualquier ubicación especificada por la dirección de 6 bits.
 
 
+# RAM8 - Implementación de Memoria
+
+
+El chip **RAM8** es una memoria de 8 registros, cada uno con un ancho de 16 bits. El chip permite almacenar y recuperar datos en ubicaciones específicas de la memoria, utilizando una dirección de 3 bits.
+
+## Especificaciones
+
+- **Entradas**:
+  - `in[16]`: Datos de 16 bits que se escribirán en la memoria.
+  - `load`: Una señal de control. Cuando está en `1`, los datos de entrada se cargan en la ubicación de memoria especificada por `address`.
+  - `address[3]`: La dirección de 3 bits de la ubicación de memoria para leer o escribir.
+
+- **Salida**:
+  - `out[16]`: Los datos de 16 bits almacenados en la ubicación de memoria especificada por `address`.
+
+## Componentes Utilizados
+
+- **DMux8Way**: Distribuye la señal `load` a uno de los ocho registros de memoria basándose en `address`.
+- **Register**: Almacena datos en el registro correspondiente cuando se recibe la señal `load`.
+- **Mux8Way16**: Selecciona la salida del registro adecuado según la dirección `address`.
+
+## Flujo Lógico
+
+1. **Selección de Registro para Escritura**:
+   - El **DMux8Way** distribuye la señal `load` a uno de los registros basándose en la dirección.
+
+2. **Escritura en el Registro**:
+   - Si `load = 1`, el registro seleccionado almacena el valor de `in[16]`.
+
+3. **Lectura de Datos**:
+   - El **Mux8Way16** selecciona la salida del registro basado en la dirección dada y la presenta en `out[16]`.
+
+## Ejemplo de Uso
+
+Para almacenar el valor `1010101010101010` en la dirección `000`:
+
+- Configura `load = 1` para escribir el valor.
+- Después de un ciclo de reloj, configura `load = 0` para leer el valor almacenado en la memoria.
+
+## Pruebas
+
+El diseño de hardware proporcionado puede ser probado usando el simulador de hardware:
+
+1. Carga el archivo **RAM8.hdl** en el **Simulador de Hardware**.
+2. Ejecuta el archivo de prueba correspondiente **RAM8.tst**.
+3. Verifica que la salida coincida con los resultados esperados especificados en **RAM8.cmp**.
+
+## Archivos en este Proyecto
+
+- `RAM8.hdl`: Implementación en HDL del chip RAM8.
+- `RAM8.tst`: Script de prueba para verificar la funcionalidad del chip.
+- `RAM8.cmp`: Archivo de comparación esperado para las pruebas.
+- `RAM8.hack`: Archivo binario que se puede cargar en el Simulador de Hardware para pruebas.
+
+## Conclusión
+
+El chip **RAM8** es un componente fundamental para la construcción de arquitecturas informáticas más complejas, proporcionando la capacidad de almacenar y recuperar datos de manera eficiente en un rango de direcciones especificadas.
+
 
