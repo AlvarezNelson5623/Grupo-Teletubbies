@@ -62,6 +62,64 @@ El **Adder16** toma dos números binarios de 16 bits como entrada y calcula la s
 
 Para sumar los números binarios `a = 0000000000000011` (3 en decimal) y `b = 0000000000000101` (5 en decimal), la salida será:
 
-```bash
+``bash
 out = 0000000000001000  # (8 en decimal)
+
+
+# HalfAdder
+
+Este proyecto implementa un **Half Adder** (Sumador Parcial) en el lenguaje de descripción de hardware (HDL) como parte del curso **nand2tetris** y el libro **The Elements of Computing Systems** de Nisan y Schocken.
+
+## Descripción
+
+Un **Half Adder** es un circuito que suma dos bits de entrada y produce dos salidas:
+- **sum**: Representa la suma de los dos bits sin tener en cuenta el acarreo.
+- **carry**: Representa el acarreo que ocurre cuando ambos bits de entrada son `1`.
+
+### Entradas
+- `a`: Bit de entrada de 1 bit.
+- `b`: Bit de entrada de 1 bit.
+
+### Salidas
+- `sum`: Resultado de la suma de `a` y `b` sin acarreo.
+- `carry`: Acarreo resultante de la suma cuando `a` y `b` son ambos `1`.
+
+### Comportamiento
+- El **sum** se calcula utilizando una operación **XOR** entre `a` y `b`.
+- El **carry** se calcula utilizando una operación **AND** entre `a` y `b`.
+
+## Uso
+
+### Instrucciones para simular el chip
+
+1. Abre el simulador de hardware de Hack del proyecto **nand2tetris**.
+2. Carga el archivo `HalfAdder.hdl`.
+3. Prueba el funcionamiento del circuito manualmente o utilizando un script de prueba.
+4. Ingresa valores de 1 bit para `a` y `b` y observa el resultado de `sum` y `carry`.
+
+### Ejemplo de uso
+
+#### Caso 1: `a = 0`, `b = 0`
+- `sum = 0`
+- `carry = 0`
+
+#### Caso 2: `a = 0`, `b = 1`
+- `sum = 1`
+- `carry = 0`
+
+#### Caso 3: `a = 1`, `b = 1`
+- `sum = 0`
+- `carry = 1` (ya que 1 + 1 = 10 en binario, y el acarreo es 1)
+
+### Pruebas
+
+Puedes utilizar los archivos de prueba disponibles en el directorio `projects/02` del curso **nand2tetris** para validar el comportamiento del **HalfAdder**. Los scripts `.tst` y `.cmp` permiten automatizar las pruebas y verificar que el circuito funciona correctamente.
+
+## Estructura del Circuito
+
+El **HalfAdder** está compuesto por dos operaciones básicas:
+- **AND**: Para calcular el acarreo.
+- **XOR**: Para calcular la suma sin acarreo.
+
+
 
