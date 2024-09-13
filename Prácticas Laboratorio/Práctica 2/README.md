@@ -98,10 +98,18 @@ La lógica secuencial se refiere a los circuitos que dependen no solo de las ent
 
 La lógica aritmética y la lógica secuencial juegan roles fundamentales y complementarios en el diseño de circuitos digitales. Mientras que la lógica aritmética se centra en el procesamiento de datos, la lógica secuencial se ocupa del control y almacenamiento de información, permitiendo la creación de sistemas complejos y dinámicos.
 
+# BONUS
+_**Unidad Arimético Lógica de propósito general:**_ Pueden realizar una amplia variedad de operaciones aritméticas (como suma, resta, multiplicación, división) y lógicas (como AND, OR, NOT, XOR).
+
+_**Unidad Arimético Lógica de propósito específico:**_ Se utilizan como DSP (Procesadores de Señal Digital) o procesadores gráficos (GPU).
+
+_**Unidad Arimético Lógica de pipeline:**_ Permiten la ejecución de varias instrucciones de manera simultánea, gracias a la técnica de segmentación o "pipelining".
+
+_**Unidad Arimético Lógica de precisión variable:**_ Trabajan con diferentes niveles de precisión en operaciones aritméticas, algo necesario en aplicaciones científicas o gráficas, donde los cálculos de precisión doble o simple son comunes.
 
 ## Recursos adicionales y referencias
 - Documentación del curso Nand2Tetris: [nand2tetris.org](https://www.nand2tetris.org).
 - Foros de soporte del curso: [Foros de Nand2Tetris](https://www.nand2tetris.org/forums).
 - Lógica aritmetica: [Lógica aritmetica wikipedia](https://es.wikipedia.org/wiki/Unidad_aritm%C3%A9tica_l%C3%B3gica)
 - Lógica secuencial: [Lógica secuencial](https://electronicwebeasy.es.tl/LOGICA-SECUENCIAL.htm)
-
+- Unidad aritmética lógica: [Wiki](https://en.wikipedia.org/wiki/Arithmetic_logic_unit) | [Vaia](https://www.vaia.com/en-us/explanations/computer-science/computer-organisation-and-architecture/arithmetic-logic-unit/)
