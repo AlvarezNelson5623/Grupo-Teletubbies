@@ -51,32 +51,7 @@ Este proyecto consiste en escribir un programa en lenguaje ensamblador Hack que 
 - El valor `0` en la pantalla representa un píxel blanco, mientras que `-1` representa un píxel negro.
 """
 
-# Funcionamiento de Cada Parte del Proyecto de Relleno de Pantalla
 
-## 1. Código en Ensamblador (.asm)
-
-**Archivo: `Fill.asm`**
-
-### Descripción
-
-Este archivo contiene el código en lenguaje ensamblador para controlar la pantalla en un sistema simple. El programa gestiona la visualización de negro y blanco en función de la entrada del teclado.
-
-### Funcionamiento
-
-- **Inicialización**:
-  - El registro `R0` se configura para apuntar a la dirección de la pantalla (`SCREEN`).
-
-- **Bucle de Teclado**:
-  - El programa entra en un bucle (`KEYBOARD_LOOP`) donde se lee el estado del teclado.
-  - Si se presiona una tecla (verificado mediante la lectura de `KBD`), se establece el valor de color a negro (`0`).
-  - Si no hay teclas presionadas, se establece el valor de color a blanco.
-
-- **Actualización de la Pantalla**:
-  - El valor de `color` se lee y se usa para actualizar cada píxel de la pantalla.
-  - Se realiza un ciclo para escribir el valor del color en cada posición de memoria correspondiente a los píxeles.
-
-- **Reinicio**:
-  - Si el registro `R0` alcanza el límite (24575), el programa se reinicia desde el inicio.
 
 ## 2. Código en Formato .hack
 
