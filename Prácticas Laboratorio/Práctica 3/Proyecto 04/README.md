@@ -1,6 +1,6 @@
 # Proyecto 4: Llenado de Pantalla (Fill.asm)
 
-## Descripción del Proyecto
+## 1. Codigo en formato .asm
 
 Este proyecto consiste en escribir un programa en lenguaje ensamblador Hack que interactúa con el teclado y la pantalla. El programa monitorea el estado del teclado y cambia el color de la pantalla dependiendo de si se está presionando una tecla o no.
 
@@ -34,23 +34,6 @@ Este proyecto consiste en escribir un programa en lenguaje ensamblador Hack que 
 
 - **Control de límites:** 
   Verifica que se haya recorrido toda la pantalla antes de reiniciar el ciclo.
-
-## Instrucciones para ejecutar:
-
-1. Carga el archivo `Fill.asm` en el ensamblador de Nand2Tetris.
-2. Ensambla el código para generar el archivo `.hack`.
-3. Carga el archivo `.hack` en la máquina virtual o simulador Hack.
-4. Ejecuta el programa:
-   - Si presionas cualquier tecla, la pantalla se llenará de negro.
-   - Si no presionas ninguna tecla, la pantalla se vaciará y quedará en blanco.
-
-## Notas Técnicas:
-
-- La dirección de inicio de la pantalla está mapeada en la constante `SCREEN`, y cada píxel de la pantalla corresponde a una dirección de memoria consecutiva.
-- El teclado está mapeado en la constante `KBD`. Si el valor en esta dirección es diferente de `0`, significa que se ha presionado una tecla.
-- El valor `0` en la pantalla representa un píxel blanco, mientras que `-1` representa un píxel negro.
-"""
-
 
 
 ## 2. Código en Formato .hack
