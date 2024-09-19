@@ -109,3 +109,48 @@ El chip utiliza **multiplexores** para seleccionar entre las diferentes partes d
 
 Este componente de memoria es esencial para la arquitectura de la computadora Hack, proporcionando acceso a la memoria principal (RAM), controlando la salida visual (Pantalla) y permitiendo la interacción del usuario a través del teclado. La implementación sigue las especificaciones del sistema Hack y gestiona eficientemente los recursos de memoria de la computadora.
 
+
+# Proyecto: Computadora Hack
+El propósito es construir una implementación de la **Computadora Hack**, una arquitectura simple basada en el diseño de von Neumann.
+
+## Descripción
+
+La **Computadora Hack** está compuesta por tres componentes principales:
+- **CPU**: Procesa instrucciones y realiza operaciones aritméticas/lógicas.
+- **ROM**: Memoria de solo lectura que contiene el programa a ejecutar (tamaño: 32K palabras).
+- **RAM**: Memoria de acceso aleatorio para almacenar datos temporales durante la ejecución del programa.
+
+El sistema permite cargar un programa en la ROM, ejecutar el programa en la CPU, y manipular datos en la RAM.
+
+### Componentes
+
+1. **CPU.hdl**: La unidad central de procesamiento que ejecuta instrucciones.
+2. **Memory.hdl**: La memoria del sistema, incluyendo la RAM y la ROM.
+3. **Computer.hdl**: El archivo principal que integra todos los componentes, conectando la CPU, la RAM y la ROM.
+
+### Entradas y Salidas
+
+- **Entrada `reset`**: Se utiliza para reiniciar la ejecución del programa.
+  - `reset = 1`: Reinicia la ejecución del programa desde la primera instrucción.
+  - `reset = 0`: Continúa la ejecución desde la última instrucción.
+
+- **Salida `outM`**: Contiene el valor que la CPU está enviando a la RAM.
+- **Salida `writeM`**: Señal de control para escribir en la RAM.
+- **Entrada/Salida `addressM`**: Dirección de memoria para leer o escribir datos en la RAM.
+
+## Instrucciones para la Ejecución
+
+1. Carga el archivo `Computer.hdl` en el simulador de hardware.
+2. Carga un archivo de prueba que contenga las instrucciones a ejecutar en la ROM.
+3. Inicia la simulación y observa cómo la CPU ejecuta el programa y manipula la memoria.
+
+## Ejecución de un Programa
+
+El programa a ejecutar se almacena en la **ROM32K**, que es una memoria de solo lectura de 32K palabras. Cuando `reset` es 0, el programa comienza a ejecutarse desde la dirección indicada por el contador de programa (`pc`). La CPU leerá las instrucciones desde la ROM y ejecutará las operaciones correspondientes.
+
+### Reinicio del Programa
+
+Si `reset` es 1, la ejecución del programa se reinicia desde la primera instrucción de la ROM.
+
+
+
