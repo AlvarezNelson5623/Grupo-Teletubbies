@@ -50,3 +50,41 @@ Este proyecto consiste en escribir un programa en lenguaje ensamblador Hack que 
 - El teclado está mapeado en la constante `KBD`. Si el valor en esta dirección es diferente de `0`, significa que se ha presionado una tecla.
 - El valor `0` en la pantalla representa un píxel blanco, mientras que `-1` representa un píxel negro.
 """
+
+## 2. Código en Formato .hack
+
+**Archivo: `Fill.hack`**
+
+### Descripción
+
+Este archivo contiene el mismo programa que `Fill.asm`, pero en formato binario (.hack). Es el formato utilizado por el simulador de Nand2Tetris para ejecutar el programa.
+
+### Funcionamiento
+
+- Cada línea de 16 bits representa una instrucción o dato.
+- El programa es ejecutado por el simulador, que interpreta estas instrucciones en el contexto del sistema de Nand2Tetris.
+- El flujo del programa es el mismo que en el archivo ensamblador, realizando las mismas operaciones de lectura del teclado y actualización de la pantalla.
+
+## 3. Archivo de Prueba (.tst)
+
+**Archivo: `Fill.tst`**
+
+### Descripción
+
+Este archivo es un conjunto de pruebas diseñado para verificar el funcionamiento del programa en el simulador.
+
+### Funcionamiento
+
+- **Carga del Programa**:
+  - Se carga el archivo `Fill.hack` en el simulador.
+
+- **Instrucciones de Prueba**:
+  - Se le indica al usuario que asegure que la opción "Sin Animación" esté seleccionada.
+  - El usuario debe presionar y mantener presionada cualquier tecla para observar el efecto en la pantalla, que debe volverse negra.
+
+- **Simulación del Tiempo**:
+  - Un bucle `repeat` se utiliza para simular el paso del tiempo y permitir que el usuario vea cómo cambia la pantalla.
+
+## Conclusiones
+
+Cada parte del proyecto contribuye al funcionamiento global del programa. El código en ensamblador implementa la lógica, el archivo en formato binario permite la ejecución en el simulador, y el archivo de prueba verifica que el comportamiento sea el esperado.
