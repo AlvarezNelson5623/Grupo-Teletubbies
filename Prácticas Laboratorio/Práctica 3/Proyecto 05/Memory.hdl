@@ -27,22 +27,17 @@ CHIP Memory {
     OUT out[16];
 
     PARTS:
-    // loadscreen = address[14] && (!address[13]) && load
     Not(in=address[13], out=notkbd);
     And(a=address[14], b=notkbd, out=pickscreen);
     And(a=pickscreen,b=load, out=loadscreen);
 
-    // loadram = !address[14] && load
     Not(in=address[14], out=pickram);
     And(a=pickram,b=load, out=loadram);
     RAM16K(in=in,load=loadram,address=address[0..13], out=ramout);
 
-    // This is only called if MSB(address) == 1
     Screen(in=in, load=loadscreen, address=address[0..12], out=screenout);
     Keyboard(out=kbdout);
 
-    // MSB(0|1) = RAM|(screen|keyboard)
     Mux16(a=ramout, b=kbdorscreenout, sel=address[14], out=out);
-    // address[13] = screen|keyboard
     Mux16(a=screenout, b=kbdout, sel=address[13], out=kbdorscreenout);
 }
