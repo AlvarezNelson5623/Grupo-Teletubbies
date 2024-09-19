@@ -1,0 +1,139 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/05/CPU.hdl
+
+/**
+ * The Hack CPU (Central Processing unit), consisting of an ALU,
+ * two registers named A and D, and a program counter named PC.
+ * The CPU is designed to fetch and execute instructions written in
+ * the Hack machine language. In particular, functions as follows:
+ * Executes the inputted instruction according to the Hack machine
+ * language specification. The D and A in the language specification
+ * refer to CPU-resident registers, while M refers to the external
+ * memory location addressed by A, i.e. to Memory[A]. The inM input
+ * holds the value of this location. If the current instruction needs
+ * to write a value to M, the value is placed in outM, the address
+ * of the target location is placed in the addressM output, and the
+ * writeM control bit is asserted. (When writeM==0, any value may
+ * appear in outM). The outM and writeM outputs are combinational:
+ * they are affected instantaneously by the execution of the current
+ * instruction. The addressM and pc outputs are clocked: although they
+ * are affected by the execution of the current instruction, they commit
+ * to their new values only in the next time step. If reset==1 then the
+ * CPU jumps to address 0 (i.e. pc is set to 0 in next time step) rather
+ * than to the address resulting from executing the current instruction.
+ */
+
+CHIP CPU {
+
+    IN  inM[16],         // M value input  (M = contents of RAM[A])
+        instruction[16], // Instruction for execution
+        reset;           // Signals whether to re-start the current
+                         // program (reset==1) or continue executing
+                         // the current program (reset==0).
+
+    OUT outM[16],        // M value output
+        writeM,          // Write to M?
+        addressM[15],    // Address in data memory (of M)
+        pc[15];          // address of next instruction
+
+    PARTS:
+    // instructions[15] = instructionC
+
+    // Specifically, when C instruction
+    // instruction[14] = 1
+    // instruction[13] = 1
+    // instruction[12] = a
+
+    // instruction[11] = c1
+    // instruction[10] = c2
+    // instruction[9]  = c3
+
+    // instruction[8] = c4
+    // instruction[7] = c5
+    // instruction[6] = c6
+
+    // instruction[5] = d1
+    // instruction[4] = d2
+    // instruction[3] = d3
+    // instruction[2] = j1
+    // instruction[1] = j2
+    // instruction[0] = j3
+
+    // we write to A based on the following truth table
+    // i[15] = true = instruction =C
+    // i[5] = true = d1 = true = write ALU output to register A
+    // i[15] | i[5] | write?| t1
+    // 0     | 0    | 1     | 1
+    // 0     | 1    | 1     | 1
+    // 1     | 0    | 0     | 1
+    // 1     | 1    | 1     | 0
+    Nand(a=instruction[15], b=instruction[5], out=t1);
+    Nand(a=t1, b=instruction[15], out=writeA);
+
+    // But the input to registerA is picked b/w instruction[0..14] | aluoutput
+    // depending on instructionA
+    // registerAInput = {
+    //   [0, instruction[0..14]] if instruction[15] = 0
+    //   aluoutput if instruction[15] = 1
+    // }
+    Mux16(a[15]=false,
+        a[0..14]=instruction[0..14],
+        b=aluoutput,
+        sel=instruction[15],
+        out=registerAInput);
+
+    // Register A
+    ARegister(in=registerAInput,
+             load=writeA,
+             out=registerA, out[0..14]=addressM);
+
+    // Register D (instruction[4] = d2)
+    And(a=instruction[4], b=instruction[15], out=writeD);
+    DRegister(in=aluoutput, load=writeD, out=registerD);
+
+    PC(in=registerA, load=jumpToAddress, inc=true, reset=reset, out[0..14]=pc);
+
+    // the "a" bit = instruction[12] decides whether Y = registerA | inM
+    Mux16(a=registerA, b=inM, sel=instruction[12], out=y);
+
+    ALU(x=registerD,
+        y=y,
+        // control bits start
+        zx=instruction[11],
+        nx=instruction[10],
+        zy=instruction[9],
+        ny=instruction[8],
+        f=instruction[7],
+        no=instruction[6],
+        // control bits end
+        out=aluoutput,
+        out=outM,
+        zr=zr, ng=ng);
+
+
+    // (j2 & zr) || (j1 & ng) || (positive && j3)
+    // (i1 & zr) || (i2 & ng) || (positive && i0)
+
+    // jumpZero = i1 && zr
+    And(a=instruction[1], b=zr, out=jumpZero);
+    // jumpNegative = i2 && ng
+    And(a=instruction[2], b=ng, out=jumpNegative);
+    // Positive = Not(ng | zr)
+    Or(a=ng, b=zr, out=LessThanOne);
+    Not(in=LessThanOne, out=Positive);
+
+    // jumpPositive = i0 && Positive
+    And(a=Positive, b=instruction[0], out=jumpPositive);
+
+    // Final 3 way OR
+    Or(a=jumpZero, b=jumpNegative, out=tmpOut);
+    Or(a=tmpOut, b=jumpPositive, out=jumpBits);
+
+    // We are jumping to an address only if we are in a C instruction
+    // and the jump bits are on
+    And(a=instruction[15], b=jumpBits, out=jumpToAddress);
+    // if we are on instruction C, and d3 is true
+    And(a=instruction[15], b=instruction[3], out=writeM);
+}
