@@ -50,3 +50,62 @@ El CPU puede realizar saltos condicionales basados en el resultado de la ALU:
 - `CPU.hdl`: Archivo que describe la arquitectura del CPU.
 - `CPU.tst`: Script de prueba para verificar el funcionamiento del CPU que es proporcionado por el software.
 - `CPU.cmp`: Archivo con los resultados esperados de la prueba que de igual manera es proporcionado por el software.
+
+# Proyecto Hack: Componente de Memoria
+
+Este proyecto implementa el **componente de Memoria** para la computadora Hack, incluyendo la **RAM**, el **mapa de memoria de la pantalla** (Screen) y el **mapa de memoria del teclado** (Keyboard). Este archivo es parte del curso de sistemas de cómputo que utiliza el libro "The Elements of Computing Systems" por Nisan y Schocken.
+
+## Descripción General
+
+El chip de **Memoria** se encarga de la lectura y escritura en la memoria de la computadora Hack. Está dividido en tres secciones principales:
+
+1. **RAM**: La memoria principal del sistema, abarca desde la dirección `0x0000` hasta `0x3FFF` (16K).
+2. **Memoria de Pantalla (Screen Memory Map)**: Utiliza el rango de direcciones `0x4000` hasta `0x5FFF` (8K) y está asignada a los píxeles de la pantalla.
+3. **Memoria del Teclado (Keyboard Memory Map)**: Se encuentra en la dirección `0x6000` y contiene el valor de la tecla presionada.
+
+### Funcionalidad
+
+El chip permite tanto operaciones de lectura como de escritura en la memoria:
+
+- **Lectura**: El chip siempre devuelve el valor almacenado en la dirección de memoria especificada por la señal `address`.
+- **Escritura**: Si la señal `load` es 1, el valor de la entrada `in` se escribe en la memoria en la dirección especificada por `address`.
+
+### Acceso a la Memoria
+
+- Si el valor del bit 14 de la dirección (`address[14]`) es 0, se accede a la **RAM**.
+- Si el valor del bit 14 es 1 y el bit 13 es 0, se accede a la **memoria de la pantalla**.
+- Si el valor del bit 14 es 1 y el bit 13 es 1, se accede al **teclado**.
+
+### Organización de los Componentes
+
+1. **RAM**: Implementada como un bloque de 16K de memoria.
+2. **Pantalla**: Controla la representación visual en la pantalla usando un mapa de bits. Las posiciones de la memoria representan los píxeles.
+3. **Teclado**: Registra la tecla actualmente presionada en la computadora Hack.
+
+### Multiplexores
+
+El chip utiliza **multiplexores** para seleccionar entre las diferentes partes de la memoria según el valor de los bits 13 y 14 de la dirección. 
+
+1. Si `address[14] == 0`, se selecciona la RAM.
+2. Si `address[14] == 1`, se selecciona la memoria de pantalla o el teclado, dependiendo del valor de `address[13]`.
+
+## Detalles Técnicos
+
+- **Entradas**:
+  - `in[16]`: Datos a escribir en la memoria.
+  - `load`: Señal de control para escribir en la memoria.
+  - `address[15]`: Dirección de memoria de 15 bits.
+
+- **Salidas**:
+  - `out[16]`: Datos leídos de la memoria.
+
+## Ejecución
+
+1. Cuando se da una dirección de memoria, el chip determina si se debe leer o escribir en la **RAM**, el **mapa de la pantalla**, o el **teclado**.
+2. Si la operación es de escritura (`load = 1`), el valor en `in` se almacena en la dirección especificada.
+3. Los datos almacenados se pueden recuperar a través de la salida `out` en el siguiente ciclo de tiempo.
+
+## Conclusión
+
+Este componente de memoria es esencial para la arquitectura de la computadora Hack, proporcionando acceso a la memoria principal (RAM), controlando la salida visual (Pantalla) y permitiendo la interacción del usuario a través del teclado. La implementación sigue las especificaciones del sistema Hack y gestiona eficientemente los recursos de memoria de la computadora.
+
