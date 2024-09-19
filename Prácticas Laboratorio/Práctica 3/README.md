@@ -31,3 +31,27 @@ El **lenguaje de máquina** es fundamental para la arquitectura computacional po
 
 El lenguaje de máquina juega un papel crucial en la definición de la arquitectura computacional al establecer el conjunto de instrucciones que el hardware puede ejecutar. Además, las diferencias entre las arquitecturas computacional, de software y del sistema reflejan los distintos niveles de diseño y organización dentro de un entorno informático. Cada tipo de arquitectura es clave para lograr un sistema eficiente y funcional, ya sea a nivel de hardware, software o como un todo.
 
+# Relación entre Arquitectura Computacional, Arquitectura del Sistema y Arquitectura de Software
+
+## Conceptos Clave
+
+1. **Arquitectura Computacional**:
+   - Se refiere a la estructura y organización del hardware, incluyendo procesadores, memoria y dispositivos de entrada/salida.
+   - Impacta directamente en el rendimiento y la capacidad del software.
+
+2. **Arquitectura del Sistema**:
+   - Enfocada en cómo se integran los componentes de hardware y software para formar un sistema completo.
+   - Incluye la comunicación y coordinación entre diferentes subsistemas.
+
+3. **Arquitectura de Software**:
+   - Se centra en la estructura del software, incluyendo sus componentes, interacciones y patrones de diseño.
+   - Debe alinearse con la arquitectura del sistema para optimizar el rendimiento.
+
+## Conclusión
+
+La arquitectura de software es esencial para el éxito de un sistema informático y debe ser considerada en conjunto con la arquitectura computacional y del sistema. Esta alineación asegura un diseño coherente, eficiente y adaptable a las necesidades cambiantes.
+
+## Referencias
+
+- [Arquitectura de Software](https://www.geeksforgeeks.org/software-architecture/)
+- [Qué es Arquitectura de Software?](https://www.ibm.com/cloud/learn/software-architecture)
