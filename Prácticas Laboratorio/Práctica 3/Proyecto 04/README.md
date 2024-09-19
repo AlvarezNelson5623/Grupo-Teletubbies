@@ -53,10 +53,3 @@ Este proyecto consiste en escribir un programa en lenguaje ensamblador Hack que 
 - El teclado está mapeado en la constante `KBD`. Si el valor en esta dirección es diferente de `0`, significa que se ha presionado una tecla.
 - El valor `0` en la pantalla representa un píxel blanco, mientras que `-1` representa un píxel negro.
 """
-
-# Crear el archivo readme.md
-ruta_archivo = "/mnt/data/readme.md"
-with open(ruta_archivo, "w") as archivo:
-    archivo.write(contenido_readme)
-
-ruta_archivo
