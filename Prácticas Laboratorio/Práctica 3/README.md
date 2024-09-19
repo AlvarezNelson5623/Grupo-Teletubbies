@@ -51,7 +51,11 @@ El lenguaje de máquina juega un papel crucial en la definición de la arquitect
 
 La arquitectura de software es esencial para el éxito de un sistema informático y debe ser considerada en conjunto con la arquitectura computacional y del sistema. Esta alineación asegura un diseño coherente, eficiente y adaptable a las necesidades cambiantes.
 
+---
 ## Referencias
-
+- Lenguaje de máquina: [Wikipedia](https://es.wikipedia.org/wiki/Lenguaje_de_m%C3%A1quina).
+- Arquitectura computacional: [Wikipedia](https://es.wikipedia.org/wiki/Arquitectura_de_computadoras).
+- Arquitectura de software: [openwebinars.net](https://openwebinars.net/blog/arquitectura-de-software-que-es-y-que-tipos-existen/).
+- Arquitectura del sistema: [colombia.unir.net](https://colombia.unir.net/actualidad-unir/arquitectura-software-y-sistemas/).
 - [Arquitectura de Software](https://www.geeksforgeeks.org/software-architecture/)
 - [Qué es Arquitectura de Software?](https://www.ibm.com/cloud/learn/software-architecture)
