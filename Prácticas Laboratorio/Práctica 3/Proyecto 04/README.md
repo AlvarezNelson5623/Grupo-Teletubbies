@@ -1,6 +1,3 @@
-# Guardar el contenido del README en un archivo readme.md
-
-contenido_readme = """
 # Proyecto 4: Llenado de Pantalla (Fill.asm)
 
 ## Descripción del Proyecto
