@@ -71,3 +71,55 @@ No se dibujará nada en la pantalla, ya que el programa se detendrá en el bucle
 
 3 Caso R0 = 20:
 Se dibujará un rectángulo de 16 píxeles de ancho y 20 filas de alto en la esquina superior izquierda de la pantalla.
+
+
+# Pong.asm
+
+Este archivo incluye todo el contenido solicitado, con la descripción del código, la explicación de su lógica y los resultados esperados para diferentes situaciones en el juego.
+
+
+## Descripción
+
+El programa `Pong.asm` está diseñado para ejecutar una versión básica del juego de Pong en la **Computadora Hack**. Este programa mueve un rectángulo en la pantalla en respuesta a la posición de una paleta controlada por el usuario y hace que el rectángulo rebote cuando alcanza los bordes de la pantalla.
+
+## Entrada
+
+- El usuario controla la paleta con las teclas de flecha en el teclado.
+  - **Tecla de flecha hacia arriba**: Mueve la paleta hacia arriba.
+  - **Tecla de flecha hacia abajo**: Mueve la paleta hacia abajo.
+
+## Salida
+
+- La pantalla muestra un rectángulo móvil (la "bola") que rebota en los bordes de la pantalla y una paleta controlada por el usuario.
+- Si el rectángulo pasa la paleta sin ser bloqueado, el juego termina.
+
+## Explicación del Código
+
+1. **Inicialización**: El programa configura la posición inicial de la bola y la paleta, así como la velocidad y dirección inicial de la bola.
+  
+2. **Bucle Principal (`GAME_LOOP`)**:
+   - En cada iteración del bucle, el programa actualiza la posición de la bola y revisa si ha llegado a los límites de la pantalla:
+     - **Colisión con los bordes verticales**: Si la bola alcanza el borde superior o inferior de la pantalla, la dirección vertical se invierte.
+     - **Colisión con los bordes horizontales**: Si la bola llega al borde izquierdo, se verifica si la paleta está alineada para bloquear la bola. Si no lo está, el juego termina.
+  
+3. **Control de la Paleta**:
+   - El programa revisa las teclas presionadas por el usuario en cada iteración del bucle para mover la paleta hacia arriba o hacia abajo.
+
+4. **Actualización de Pantalla**:
+   - La pantalla se actualiza con la nueva posición de la bola y la paleta. Cada píxel encendido representa una posición de la bola o de la paleta.
+
+5. **Bucle Infinito al Final del Juego (`END_GAME`)**:
+   - Si el jugador pierde (es decir, si la bola pasa la paleta sin ser bloqueada), el programa entra en un bucle infinito, terminando efectivamente el juego.
+
+## Resultados Esperados
+Dependiendo de las acciones del usuario y la posición de la paleta, el juego arroja distintos resultados:
+
+1. Caso: La bola es bloqueada por la paleta:
+La bola rebota y continúa en dirección opuesta.
+
+2. Caso: La bola pasa la paleta:
+El juego termina y el programa entra en un bucle infinito (END_GAME).
+
+3. Movimiento de la paleta:
+La paleta sigue las teclas de flecha del teclado en tiempo real, permitiendo al usuario alinearse para bloquear la bola.
+
