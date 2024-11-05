@@ -34,6 +34,9 @@ Este programa en ensamblador para la **Computadora Hack** compara dos números a
 
 # Rect.asm
 
+Este archivo proporciona toda la información necesaria, los resultados esperados en varios casos y la explicación detallada del funcionamiento.
+
+
 ## Descripción
 
 Este programa en ensamblador para la **Computadora Hack** dibuja un rectángulo de 16 píxeles de ancho y una altura de `R0` píxeles en la esquina superior izquierda de la pantalla.
