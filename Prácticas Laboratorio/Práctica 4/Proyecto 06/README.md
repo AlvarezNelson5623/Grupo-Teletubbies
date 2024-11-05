@@ -1,7 +1,6 @@
 
-Este archivo `README.md` explica la funcionalidad del programa `Max.asm`, su entrada y salida, y describe cada sección del código paso a paso.
-
 # Max.asm
+explica la funcionalidad del programa `Max.asm`, su entrada y salida, y describe cada sección del código paso a paso.
 
 ## Descripción
 
@@ -27,25 +26,3 @@ Este programa en ensamblador para la **Computadora Hack** compara dos números a
    - Si `M[1]` es mayor o igual, se carga en `D` y se guarda en `M[2]`.
 4. **Bucle infinito**: Al final, el programa entra en un bucle infinito para detener la ejecución.
 
-## Código
-
-```asm
-   @0
-   D=M              // D = primer número (M[0])
-   @1
-   D=D-M            // D = primer número - segundo número (M[0] - M[1])
-   @OUTPUT_FIRST
-   D;JGT            // Si D > 0 (primer número es mayor), ir a OUTPUT_FIRST
-   @1
-   D=M              // Si no, D = segundo número (M[1])
-   @OUTPUT_D
-   0;JMP            // Ir a OUTPUT_D
-(OUTPUT_FIRST)
-   @0             
-   D=M              // D = primer número (M[0])
-(OUTPUT_D)
-   @2
-   M=D              // Guardar el número mayor en M[2]
-(INFINITE_LOOP)
-   @INFINITE_LOOP
-   0;JMP            // Bucle infinito para detener la ejecución
