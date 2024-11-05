@@ -26,3 +26,9 @@ Este programa en ensamblador para la **Computadora Hack** compara dos números a
    - Si `M[1]` es mayor o igual, se carga en `D` y se guarda en `M[2]`.
 4. **Bucle infinito**: Al final, el programa entra en un bucle infinito para detener la ejecución.
 
+## Resultados Esperados
+
+- Si `M[0]` es mayor que `M[1]`, entonces `M[2]` contendrá el valor de `M[0]`.
+- Si `M[1]` es mayor o igual a `M[0]`, entonces `M[2]` contendrá el valor de `M[1]`.
+- El programa se detiene en un bucle infinito tras almacenar el valor mayor.
+
